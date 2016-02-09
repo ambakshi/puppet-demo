@@ -34,6 +34,8 @@ servers.each do |servers|
    srv.vm.provider :virtualbox do |v|
         v.cpus = servers["cpu"]
         v.memory = servers["ram"]
+        v.linked_clone = true
+
   end
    
     srv.vm.synced_folder "./", "/home/vagrant/#{servers['name']}"

@@ -2,16 +2,15 @@
 #
 #
 class config(
-  
- $consul_ip = "$::ipaddress_enp0s8", 
- ){
-  
+  $consul_ip = "$::ipaddress_enp0s8", 
+){
+
   include config::consul_config 
-   
+
   class {'config::swarm':} ~>
   class {'config::compose':} ~>
   class {'config::dns':} ->
-  class { 'config::run_containers':}
+  class {'config::run_containers':}
 }
 
 
